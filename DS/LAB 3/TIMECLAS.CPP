@@ -14,7 +14,30 @@ class Time {
 	}
 	Time add(Time t1, Time t2) {
 		Time t;
-		t = t1;
+		t.sec = (t1.sec + t2.sec) % 60;
+		int temp = (t1.sec + t2.sec) / 60;
+		t.min = (t1.min + t2.min + temp) % 60;
+		temp = (t1.min + t2.min + temp) / 60;
+		t.hour = t1.hour + t2.hour + temp;
+		return t;
+	}
+	Time  diff(Time t1, Time t2) {
+		Time t;
+		t.hour = t1.hour - t2.hour;
+		t.min = t1.min - t2.min;
+		if(t.min < 0) {
+			t.min += 60;
+			t.hour--;
+		}
+		t.sec = t1.sec - t2.sec;
+		if(t.sec < 0) {
+			t.sec += 60;
+			t.min--;
+			if(t.min < 0) {
+				t.min += 60;
+				t.hour--;
+			}
+		}
 		return t;
 	}
 	void display() {
@@ -33,8 +56,8 @@ void main() {
 	t3 = t1.add(t1, t2);
 	cout << "\nSum:\n";
 	t3.display();
-      //	t3 = t1.diff(t1, t2);
-	cout << "\Difference:\n";
+	t3 = t1.diff(t1, t2);
+	cout << "\nDifference:\n";
 	t3.display();
 	getch();
 }

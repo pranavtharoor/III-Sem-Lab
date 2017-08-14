@@ -1,0 +1,54 @@
+#include <iostream.h>
+#include <conio.h>
+
+#define max 20
+
+class stack {
+	int s[20], top;
+	public:
+		stack() {
+			top = 0;
+		}
+		void push(int a) {
+			if(top < max)
+				s[top++] = a;
+		}
+		int pop() {
+			if(top - 1 >= 0)
+				return s[--top];
+			return -1;
+		}
+		char peek() {
+			if(top - 1 >= 0)
+				return s[top - 1];
+			return -1;
+		}
+};
+
+void main() {
+	clrscr();
+	stack s;
+	char t = 'y';
+	int n, o;
+	while(t != 'n') {
+		cout << "1: push\n2: pop\n3: peek\n";
+		cin >> o;
+		switch(o) {
+			case 1:
+				cout << "Enter number: ";
+				cin >> n;
+				s.push(n);
+				break;
+			case 2:
+				cout << s.pop() << " popped\n";
+				break;
+			case 3:
+				cout << s.peek() << "\n";
+				break;
+			default:
+				cout << "Invalid";
+		}
+		cout << "Continue? (y/n)";
+		cin >> t;
+	}
+}
