@@ -6,20 +6,26 @@
 class cirqueue {
 	int f, r;
 	int q[max];
+	int l;
 	public:
 		cirqueue() {
-			f = -1;
-			r = -1;
+			f = 0;
+			r = 0;
+			l = 0;
 		}
 		void enqueue(int a) {
-			if(f % max <= r % max)
+			if(l != max) {
+				l++;
 				q[++r % max] = a;
-			cout << f << r;
+			} else {
+				cout << "Queue full\n";
+			}
 		}
 		int dequeue() {
-			if(f % max != r % max)
+			if(l > 0) {
+				l--;
 				return q[++f % max];
-			cout << f << r;
+			}
 			return -1;
 		}
 };
