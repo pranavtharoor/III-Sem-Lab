@@ -46,17 +46,5 @@ int main() {
 	}
 	if(s.peek() == -1) cout << "Valid";
 	else cout << "Invalid";
-	// int l;
-	// for(l = 0; a[l] != '\0'; l++);
-	// int flag = 1;
-	// for(int i = 0; i a[i] != '\0'; i++) {
-	// 	if(a[i] == '(' || a[i] == '{' || a == '[') 
-	// 		s.push(a[i]);
-	// 	else if(a[i] == ')' || a[i] == '}' || a == ']')
-	// 		if(a[i] != s.pop())
-	// 			flag = 0;
-	// }
-	// if(flag) cout << "Correct";
-	// else cout << "Incorrect";
 	return 0;
 }
