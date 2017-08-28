@@ -1,0 +1,57 @@
+#include <iostream.h>
+#include <conio.h>
+#include <string.h>
+
+#define max 20
+
+class stack {
+	int top;
+	char s[max];
+	public:
+		stack() {
+			top = 0;
+		}
+		void push(int a) {
+			if(top < max)
+				s[top++] = a;
+		}
+		char pop() {
+			if(top - 1 >= 0)
+				return s[--top];
+			return -1;
+		}
+		char peek() {
+			if(top - 1 >= 0)
+				return s[top - 1];
+			return -1;
+		}
+		int isEmpty() {
+			if(top == 0)
+				return 1;
+			return 0;
+		}
+};
+
+int main() {
+	clrscr();
+	stack s;
+	char a[130];
+	cout << "Enter expression:\n";
+	cin >> a;
+	strrev(a);
+	for(int i = 0; a[i] != '\0'; i++) {
+		if(a[i] == ')') s.push(a[i]);
+		else if(a[i] == '(') {
+			while(s.peek() != ')')
+				cout << s.pop();
+			s.pop();
+		} else if((a[i] == '*' || a[i] == '/') && (s.peek() == '+' || s.peek() == '-'))
+			s.push(a[i]);
+		else if((a[i] == '+' || a[i] == '-') && (s.peek() == '*' || s.peek() == '/'))
+			cout << a[i];
+		else if(a[i] > 'z' || a[i] < 'a') s.push(a[i]);
+		else cout << a[i];
+	}
+	getch();
+	return 0;
+}
