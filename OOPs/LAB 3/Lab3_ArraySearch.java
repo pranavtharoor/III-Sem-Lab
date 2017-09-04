@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab;
+// package lab;
 
 /**
  * Searches for number in an array

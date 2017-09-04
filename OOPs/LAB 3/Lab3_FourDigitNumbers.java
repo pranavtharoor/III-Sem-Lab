@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Lab3_FourDigitNumbers {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
-        System.out.println("Choose case\nCase 1: Duplication of digits is allowed\nCase 2: Duplication of digits is allowed\n");
+        System.out.println("Choose case\nCase 1: Duplication of digits is allowed\nCase 2: Duplication of digits is not allowed\n");
         int c = in.nextInt();
         if(c == 1) {
             for(int i = 1; i < 5; i++)

@@ -16,7 +16,7 @@ public class Lab3_NumberTriangle {
                 System.out.print(i);
             System.out.println();
         }
-        int arr[][] = {{1}, {2, 2}, {3, 3, 3}, {4, 4, 4}, {5, 5, 5, 5, 5}};
+        int arr[][] = {{1}, {2, 2}, {3, 3, 3}, {4, 4, 4, 4}, {5, 5, 5, 5, 5}};
         for(int i[]:arr) {
             for(int j: i) {
                 System.out.print(j);
