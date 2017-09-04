@@ -1,7 +1,10 @@
-#include <iostream.h>
+#include <iostream>
 #include <conio.h>
-#include <stdio.h>
 #include <string.h>
+
+#define max 20
+
+using namespace std;
 
 class stack {
 	int top;
@@ -31,28 +34,26 @@ int isOperator(char c ) {
 	}
 }
 
-void main() {
-	clrscr();
-	char prefix[100], res[100], sym[2], a1[100], a2[100];
-	stack s1;
-	cout<<"enetr the prefix expression\n";
+int main() {
+	char prefix[100], res[100], a[2], a1[100], a2[100];
+	stack s;
+	cout<<"Enter expression: ";
 	cin >> prefix;
 	strrev(prefix);
-	for(int i=0; prefix[i]!='\0'; i++) {
-		sym[0]=prefix[i];
-		sym[1]='\0';
-		if(isOperator(prefix[i]))
-		{
-			strcpy(a1,s1.pop());
-			strcpy(a2,s1.pop());
+	for(int i = 0; prefix[i]! = '\0'; i++) {
+		a[0] = prefix[i];
+		a[1] = '\0';
+		if(isOperator(prefix[i])) {
+			strcpy(a1,s.pop());
+			strcpy(a2,s.pop());
 			strcpy(res,"(");
 			strcat(res,a1);
-			strcat(res,sym);
+			strcat(res,a);
 			strcat(res,a2);
 			strcat(res,")");
-			s1.push(res);
-		} else s1.push(sym);
+			s.push(res);
+		} else s.push(a);
 	}
-	cout<<"Infix expression: " << s1.pop();
-	getch();
+	cout<<"Infix expression: " << s.pop();
+    return 0;
 }
