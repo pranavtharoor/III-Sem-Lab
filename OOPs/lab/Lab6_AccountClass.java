@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab;
+// package lab;
 
 import java.util.Scanner;
 
@@ -19,7 +19,7 @@ class Account {
     public Account(int accNo, String name, int type) {
         this.accNo = accNo;
         this.name = name;
-        this.accType = type == 1 ? "Savings":"Current";
+        this.accType = type != 1 ? "Savings":"Current";
         balance = 0;
     }
     
@@ -83,11 +83,11 @@ public class Lab6_AccountClass {
                 System.out.println("1: Deposit\n2: Withdraw");
                 int choice = in.nextInt();
                 if(choice == 1) {
-                    System.out.print("Enter deposit ammount: ");
+                    System.out.print("Enter deposit amount: ");
                     cac1.deposit(in.nextDouble());
                 }
                 else if(choice == 2) {
-                    System.out.print("Enter ammount to withdraw: ");
+                    System.out.print("Enter amount to withdraw: ");
                     cac1.withdraw(in.nextDouble());
                 }
                 else System.out.println("Invalid");

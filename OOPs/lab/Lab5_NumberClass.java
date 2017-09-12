@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab;
+// package lab;
 
 import java.util.Scanner;
 
@@ -59,7 +59,7 @@ class Number {
 public class Lab5_NumberClass {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter nimber");
+        System.out.println("Enter number");
         Number n = new Number(in.nextDouble());
         if(n.isZero()) System.out.println("Number is zero");
         if(n.isPositive()) System.out.println("Number is positive");
