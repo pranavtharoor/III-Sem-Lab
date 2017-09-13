@@ -14,12 +14,16 @@ import java.util.Scanner;
 
 class Box {
     double length, width, height;
-    public void setDimentions(double length, double width, double height) { // initialize dimentions
-        this.length = length; 
+    
+    // Initializes box dimentions
+    public void setDimentions(double length, double width, double height) {
+        this.length = length;
         this.width = width;
         this.height = height;
     }
-    public double volume() { // returns volume
+    
+    // Returns volume of the box
+    public double volume() {
         return length * width * height; 
     }
 }

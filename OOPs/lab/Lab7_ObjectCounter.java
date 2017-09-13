@@ -14,6 +14,8 @@ import java.util.Scanner;
 
 class RandomClass {
     static int num = 0;
+    
+    // Increments the value of num whenever an object is created
     public RandomClass() {
         num++;
     }

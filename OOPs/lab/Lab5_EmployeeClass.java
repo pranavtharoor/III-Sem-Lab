@@ -16,6 +16,8 @@ class Employee {
     String name, city;
     int salary;
     float da, hra, totalSalary;
+    
+    // Initializes Employee
     public Employee(String name, String city, int salary, float da, float hra) {
         this.name = name;
         this.city = city;
@@ -23,9 +25,13 @@ class Employee {
         this.da = da;
         this.hra = hra;
     }
+    
+    // Calculates total salary
     public void calculate() {
         totalSalary = salary + salary * da / 100 + salary * hra / 100;
     }
+    
+    // Displays total salary
     public void display() {
         System.out.println("Total Salary: " + totalSalary);
     }

@@ -15,13 +15,13 @@ import java.util.Scanner;
 class Book {
     String title, author;
     int edition;
-    public void setData(String title, String author, int edition) { 
+    public void setData(String title, String author, int edition) { // Initializes book details
         this.title = title;
         this.author = author;
         this.edition = edition;
     }
     public void findByAuthorAndDisplay(String author, Book[] b) {
-        for(int i = 0; i < b.length; i++) {
+        for(int i = 0; i < b.length; i++) { // Iterates through array and searches for book by the author
             if(b[i].author.equals(author)) {
                 System.out.println();
                 System.out.println("Title: " + b[i].title);
@@ -38,7 +38,7 @@ public class Lab5_BookClass {
         System.out.println("Enter number of books: ");
         int n = in.nextInt();
         Book a = new Book();
-        Book[] b = new Book[n];
+        Book[] b = new Book[n]; // Array of books
         for(int i = 0; i < n; i++) {
             b[i] = new Book();
             System.out.println("\nBook " + (i + 1));

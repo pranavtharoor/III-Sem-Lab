@@ -12,23 +12,35 @@ package lab;
 
 class Complex {
     int real, complex;
+    
+    // Returns real part
     public int getReal() {
         return real;
     }
+    
+    // Returns complex part
     public int getComplex() {
         return complex;
     }
+    
+    // Initializes complex numer
     public Complex(int real, int complex) {
         this.real = real;
         this.complex = complex;
     }
+    
+    // Adds two integer numbers
     public int add(int a, int b) {
         return a + b;
     }
+    
+    // Adds one integer and one complex number
     public Complex add(int a, Complex b) {
         Complex com = new Complex(a + b.getReal(), b.getComplex());
         return com;
     }
+    
+    // Adds two complex numbers
     public Complex add(Complex a, Complex b) {
         Complex com = new Complex(a.getReal() + b.getReal(), a.getComplex() + b.getComplex());
         return com;

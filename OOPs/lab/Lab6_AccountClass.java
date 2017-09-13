@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-// package lab;
+package lab;
 
 import java.util.Scanner;
 
@@ -16,33 +16,41 @@ class Account {
     int accNo;
     String name, accType;
     double balance;
+    
+    // Initializes account details
     public Account(int accNo, String name, int type) {
         this.accNo = accNo;
         this.name = name;
-        this.accType = type != 1 ? "Savings":"Current";
+        this.accType = type == 1 ? "Savings":"Current";
         balance = 0;
     }
     
+    // Returns balance in account
     public double getBalance() {
         return balance;
     }
 
+    // Returns account number
     public int getAccNo() {
         return accNo;
     }
 
+    // Returns account name
     public String getName() {
         return name;
     }
 
+    // Returns account type
     public String getAccType() {
         return accType;
     }
 
+    // Adds to account to the accoutn balance
     public void deposit(double balance) {
         this.balance += balance;
     }
     
+    // Reduces from the account balance
     public void withdraw(double balance) {
         if(this.balance - balance < 0) System.out.println("Not enough balance");
         else this.balance -= balance;
@@ -60,6 +68,7 @@ class savingsAcc extends Account {
         super(accNo, name, accType);
     }
 
+    // Computes the interest
     void computeInterest(float interest) {
         super.balance += super.balance * interest / 100.0;
     }
@@ -83,11 +92,11 @@ public class Lab6_AccountClass {
                 System.out.println("1: Deposit\n2: Withdraw");
                 int choice = in.nextInt();
                 if(choice == 1) {
-                    System.out.print("Enter deposit amount: ");
+                    System.out.print("Enter deposit ammount: ");
                     cac1.deposit(in.nextDouble());
                 }
                 else if(choice == 2) {
-                    System.out.print("Enter amount to withdraw: ");
+                    System.out.print("Enter ammount to withdraw: ");
                     cac1.withdraw(in.nextDouble());
                 }
                 else System.out.println("Invalid");

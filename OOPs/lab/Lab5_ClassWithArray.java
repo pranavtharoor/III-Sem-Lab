@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-// package lab;
+package lab;
 
 import java.util.Scanner;
 
@@ -15,22 +15,30 @@ import java.util.Scanner;
 class IntArray {
     int[] a = new int[10];
     Scanner in = new Scanner(System.in);
+    
+    // Initailizes array
     public void setArray() {
         System.out.println("Enter 10 elements");
         for(int i = 0; i < 10; i++)
             a[i] = in.nextInt();
     }
+    
+    // Prints array elements
     public void display() {
         for(int i = 0; i < 10; i++)
             System.out.print(a[i] + " ");
         System.out.println();
     }
+    
+    // Finds largest value in array
     public void dispLargestValue() {
         int max = a[0];
         for(int i = 0; i < 10; i++)
             if(a[i] > max) max = a[i];
         System.out.println("Max: " + max);
     }
+    
+    // Sorts array
     public void sort() {
         for(int i = 0; i < 10; i++)
             for(int j = 0; j < 9 - i; j++)

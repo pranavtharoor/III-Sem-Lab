@@ -15,11 +15,15 @@ import java.util.Scanner;
 class Student_Detail {
     int id;
     String name, college_name;
+    
+    // Initializes student details
     public Student_Detail(int id, String name) {
         college_name = "MIT";
         this.id = id;
         this.name = name;
     }
+    
+    // Displays student details
     public void display_details() {
         System.out.println("Name: " + name + "\nID: " + id + "\nCollege Name: " + college_name);
     }

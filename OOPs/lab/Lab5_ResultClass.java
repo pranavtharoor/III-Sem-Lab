@@ -1,12 +1,18 @@
+package lab;
+
 import java.util.Scanner;
 
 class Result {
 	int[][] marks = new int[3][3];
 	int[] total = new int[3];
+        
+        // Sets marks from input array to 2D array in object
 	public void setMarks(int rollNo, int marks[]) {
 		for(int i = 0; i < this.marks[rollNo].length; i++)
 			this.marks[rollNo][i] = marks[i];
 	}
+        
+        // Computes the total marks
 	public void computeTotal() {
 		int sum;
 		for(int i = 0; i < marks.length; i++) {
@@ -16,6 +22,8 @@ class Result {
 			total[i] = sum;
 		}
 	}
+        
+        // Prints highest mark and corresponding roll number
 	public void highestSubject() {
 		int high, highRollNo;
 		for(int i = 0; i < marks[0].length; i++) {
@@ -30,6 +38,8 @@ class Result {
 			System.out.println("\nSubject " + (i + 1) + ":\nHighest mark:" + high + "\nRoll number: " + highRollNo);
 		}
 	}
+        
+        // Prints highest total
 	public void highestTotal() {
 		int high = total[0];
 		int highRollNo = 1;

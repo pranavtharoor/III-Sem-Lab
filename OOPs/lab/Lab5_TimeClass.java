@@ -14,19 +14,27 @@ import java.util.Scanner;
 
 class Time {
     int hours, mins, secs;
+    
+    // Initalizes value of the time object to 0
     Time() {
         hours = 0;
         mins = 0;
         secs = 0;
     }
+    
+    // Initializes time
     Time(int hours, int mins, int secs) {
         this.hours = hours;
         this.mins = mins;
         this.secs = secs;
     }
+    
+    // Displays time
     public void display() {
         System.out.print(hours + ":" + mins + ":" + secs);
     }
+    
+    // Returns a time which is the sum of input times
     public Time addTimes(Time t1, Time t2) {
         Time t = new Time();
         t.secs = (t1.secs + t2.secs) % 60;

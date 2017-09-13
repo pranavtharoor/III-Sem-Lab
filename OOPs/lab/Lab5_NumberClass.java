@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-// package lab;
+package lab;
 
 import java.util.Scanner;
 
@@ -14,29 +14,43 @@ import java.util.Scanner;
 
 class Number {
     double n;
+    
+    // Initializes number
     Number(double n) {
         this.n = n;
     }
+    
+    // Checks for zero
     public boolean isZero() {
         if(n == 0) return true;
         return false;
     }
+    
+    // Checks if positive
     public boolean isPositive() {
         if(n > 0) return true;
         return false;
     }
+    
+    // Checks if negative
     public boolean isNegative() {
         if(n < 0) return true;
         return false;
     }
+    
+    // Checks if odd
     public boolean isOdd() {
         if(n % 2 != 0) return true;
         return false;
     }
+    
+    // Checks if even
     public boolean isEven() {
         if(n % 2 == 0) return true;
         return false;
     }
+    
+    // Checks if prime
     public boolean isPrime() {
         boolean flag = true;
         for(int i = 2; i <= n / 2; i++)
@@ -44,6 +58,8 @@ class Number {
         if(flag && n > 1 && n == (int) n) return true;
         return false;
     }
+    
+    // Checks if the number is an Armstrong number
     public boolean isArmstrong() {
         int t = (int) n;
         int sum = 0;
