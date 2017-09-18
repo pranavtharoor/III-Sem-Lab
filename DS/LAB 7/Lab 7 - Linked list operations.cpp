@@ -123,17 +123,6 @@ class node {
         delete temp;
         return start;
     }
-    // node* delete_element(node* start) {
-    //     node *t = start;
-    //     cout << "Enter element: ";
-    //     int e;
-    //     cin >> e;
-    //     for(node* t = start; t -> next != NULL; t = t -> next) {
-    //         if(t -> next -> data == e) {
-    //             t -> next = t -> next -> next;
-    //         }
-    //     }
-    // }
 };
 
 int main() {
@@ -144,7 +133,7 @@ int main() {
     do {
         cout << "\nChoose option\n1: Insert end\n2: Insert beginning\n3: Insert at position(1 to n)\
         \n4: Insert before element\n5: Delete end\n6: Delete start\n7: Delete at position(1 to n)\
-        \n8: Delete particular element\n10: Display\n";
+        \n8: Display\n";
         cin >> o;
         switch(o) {
             case 1:
@@ -168,10 +157,7 @@ int main() {
             case 7:
                 start = l.delete_at_position(start);
                 break;
-            // case 8:
-            //     start = l.delete_element(start);
-            //     break;
-            case 10:
+            case 8:
                 l.display(start);
                 break;
         }
