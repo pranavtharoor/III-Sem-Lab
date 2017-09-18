@@ -87,6 +87,53 @@ class node {
         }
         return start;
     }
+    node* delete_end(node* start) {
+        node *t = start;
+        if(t -> next == NULL) {
+            delete start;
+            return NULL;
+        }
+        for(t; t -> next -> next != NULL; t = t -> next);
+        delete t -> next;
+        t -> next = NULL;
+        return start;
+    }
+    node* delete_start(node* start) {
+        node *t = start;
+        if(t -> next == NULL) {
+            delete start;
+            return NULL;
+        }
+        delete start;
+        start = t -> next;
+        return start;
+    }
+    node* delete_at_position(node* start) {
+        int pos;
+        cout << "\nEnter position: ";
+        cin >> pos;
+        if(pos == 1) return delete_start(start);
+        pos--;
+        node *t = start;
+        for(int i = 0; i < pos - 1; i++) {
+            t = t -> next;
+        }
+        node *temp = t -> next;
+        t -> next = t -> next -> next;
+        delete temp;
+        return start;
+    }
+    // node* delete_element(node* start) {
+    //     node *t = start;
+    //     cout << "Enter element: ";
+    //     int e;
+    //     cin >> e;
+    //     for(node* t = start; t -> next != NULL; t = t -> next) {
+    //         if(t -> next -> data == e) {
+    //             t -> next = t -> next -> next;
+    //         }
+    //     }
+    // }
 };
 
 int main() {
@@ -95,8 +142,9 @@ int main() {
     char t = 'y';
     int o;
     do {
-        cout << "\nChoose option\n1: Insert end\n2: Insert beginning\n3: Insert at position\
-        \n4: Insert before element\n10: Display\n";
+        cout << "\nChoose option\n1: Insert end\n2: Insert beginning\n3: Insert at position(1 to n)\
+        \n4: Insert before element\n5: Delete end\n6: Delete start\n7: Delete at position(1 to n)\
+        \n8: Delete particular element\n10: Display\n";
         cin >> o;
         switch(o) {
             case 1:
@@ -111,6 +159,18 @@ int main() {
             case 4:
                 start = l.insert_before_element(start);
                 break;
+            case 5:
+                start = l.delete_end(start);
+                break;
+            case 6:
+                start = l.delete_start(start);
+                break;
+            case 7:
+                start = l.delete_at_position(start);
+                break;
+            // case 8:
+            //     start = l.delete_element(start);
+            //     break;
             case 10:
                 l.display(start);
                 break;
