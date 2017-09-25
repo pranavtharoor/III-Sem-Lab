@@ -6,10 +6,11 @@ class node {
     int data;
     node *next;
     public:
-    node* insert_end(node *start, int x) {
+    node* insert_end(node *start) {
         node *temp = new node;
         temp -> next = NULL;
-        temp -> data = x;
+        cout << "\nEnter data: ";
+        cin >> temp -> data;
         if(start == NULL) {
             start = temp;
             return start;
@@ -29,10 +30,17 @@ class node {
         cout << "\n";
     }
     node* delAlt(node *start) {
-        for(node *t = start; t -> next -> next != NULL; t = t -> next) {
-            t -> next = t -> next -> next;
+        if(start -> next == NULL)
+            return start;
+        node *prev = start;
+        node *node = start -> next;
+        while(prev != NULL && node != NULL) {
+            prev -> next = node -> next;
+            delete node;
+            prev = prev -> next;
+            if(prev != NULL)
+                node = prev -> next;
         }
-        //if(t -> next )************************************************************************************************
         return start;
     }
 };
@@ -40,7 +48,12 @@ class node {
 int main() {
     node *start = NULL;
     node l;
-    start = l.insert_end(start, 2);start = l.insert_end(start, 1);start = l.insert_end(start, 2);start = l.insert_end(start, 1);start = l.insert_end(start, 2);start = l.insert_end(start, 1);start = l.insert_end(start, 2);start = l.insert_end(start, 1);
+    cout << "Enter number of elements: ";
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        start = l.insert_end(start);
+    }
     start = l.delAlt(start);
     l.display(start);
     return 0;
