@@ -90,7 +90,7 @@ public class Lab8_CompanyInterface {
                 String os = in.next();
                 s = new Software(type, os);
                 System.out.println("Increase sales by: ");
-                h.incSales(in.nextDouble());
+                s.incSales(in.nextDouble());
             } else if(a != 3) System.out.println("Invalid");
         }
         System.out.println("Total sales: " + (h.getSales() + s.getSales()));

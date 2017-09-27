@@ -6,15 +6,15 @@
 package lab;
 
 /**
- * Demonstrates autoboxinig and unboxing
+ * Handles NumberFormatException
  * @author Pranav Tharoor
  */
-public class Lab7_AutoboxingUnboxing {
+public class Lab10_NumberFormatException {
     public static void main(String args[]) {
-        int i = 5, b = 3;
-        Integer a = 1;
-        i = a;
-        a = b; // Autoboxing: Primitive b is converted to object a
-        System.out.println("" + a + b + i);        
+        try {
+            System.out.println(Integer.parseInt("Hello")); // Cannot parse 'Hello' as an integer
+        } catch (NumberFormatException e){
+            System.out.println(e);
+        }
     }
 }
