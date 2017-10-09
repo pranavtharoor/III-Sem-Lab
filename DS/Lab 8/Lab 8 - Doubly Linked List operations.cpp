@@ -52,7 +52,7 @@ class node {
         temp -> next -> prev = temp;
         return start;
     }
-/*    node* insert_after_element(node *start) {
+    node* insert_after_element(node *start) {
         node *temp = new node;
         temp -> next = NULL;
         temp -> prev = NULL;
@@ -63,8 +63,6 @@ class node {
         int e;
         cin >> e;
         node *t = start;
-        t -> next = NULL;
-        t -> prev = NULL;
         while(t -> next != NULL) {
             if(t -> data == e) break;
             t = t -> next;
@@ -75,7 +73,34 @@ class node {
         if(temp -> next != NULL)
             temp -> next -> prev = temp;
         return start;
-    }*/
+    }
+    node* delete_element(node *start) {
+        int e;
+        cout << "Enter data: ";
+        cin >> e;
+        node *t = start;
+        if (t -> data == e) return t -> next;
+        while(t -> next != NULL) {
+            if(t -> next -> data == e) break;
+            t = t -> next;
+        }
+        t -> next = t -> next -> next;
+        delete t -> next -> prev;
+        t -> next -> prev = t;
+        return start;
+    }
+    node* reverse_list(node *start) {
+        node *t = start;
+        if (t == NULL) return start;
+        node *temp = NULL;
+        while(t != NULL) {
+            temp = t -> prev;
+            t -> prev = t -> next;
+            t -> next = temp;
+            t = t -> prev;
+        }
+        return temp -> prev;
+    }
 };
 
 int main() {
@@ -83,7 +108,7 @@ int main() {
     node dl;
     cout << "Choose\n1: Insert element at end\n2: Insert element before another element\
     \n3: Insert element after another element\n4: Delete a given element\n5: Reverse list\
-    \n6: Display list\n7: Quit";
+    \n6: Display list\n7: Quit\n\n";
     int o;
     cin >> o;
     while(o != 7) {
@@ -95,13 +120,13 @@ int main() {
             start = dl.insert_before_element(start);
             break;
         case 3:
-            //start = dl.insert_after_element(start);
+            start = dl.insert_after_element(start);
             break;
         case 4:
-            //start = dl.delete_element(start);
+            start = dl.delete_element(start);
             break;
         case 5:
-            //start = dl.reverse_list(start);
+            start = dl.reverse_list(start);
             break;
         case 6:
             dl.display(start);
